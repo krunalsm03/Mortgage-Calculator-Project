@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mortgage Calculator</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- LEFT -->
+  <div class="left">
+    <div class="header">
+      <h1>Mortgage Calculator</h1>
+      <span class="clear" onclick="resetAll()">Clear All</span>
+    </div>
+
+    <label>Mortgage Amount</label>
+    <div class="input-box">
+      <span>£</span>
+      <input id="amount" type="number" placeholder="Enter amount">
+    </div>
+
+    <div class="row">
+      <div>
+        <label>Mortgage Term</label>
+        <div class="input-box">
+<input id="term" type="number" placeholder="Years">          <span>years</span>
+        </div>
+      </div>
+
+      <div>
+        <label>Interest Rate</label>
+        <div class="input-box">
+<input id="rate" type="number" placeholder="Rate">          <span>%</span>
+        </div>
+      </div>
+    </div>
+
+    <label>Mortgage Type</label>
+
+    <div class="type active">
+      <input type="radio" name="type" value="repayment" checked>
+      <span>Repayment</span>
+    </div>
+
+    <div class="type">
+      <input type="radio" name="type" value="interest">
+      <span>Interest Only</span>
+    </div>
+
+<button class="calculate" onclick="calculate()" style="font-size: 24px; padding: 10px 20px; display: flex; align-items: center; gap: 2px;">
+  <span style="font-size: 40px;padding-bottom: 12px;">🖩</span>
+  <span id="calcText">Calculate Repayments</span>
+</button>
+
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+    <h2>Your results</h2>
+    <p class="desc">
+      Your results are shown below based on the information you provided.
+   To adjust the results, edit the form and click "calculate repayments" again.
+    </p>
+
+    <div class="result-box">
+<p id="monthlyLabel">Your monthly repayments</p>
+      <div class="monthly" id="monthly">£0.00</div>
+
+      <hr>
+
+      <p class="total-label">Total you'll repay over the term</p>
+<h3 id="total">£0.00</h3>
+    </div>
+  </div>
+
+</div>
+<script src="script.js"></script>
+
+</body>
+</html>
