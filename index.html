@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mortgage Calculator</title>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mortgage Calculator</title>
   <link rel="stylesheet" href="style.css" />
-</head>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+</head>
 <body>
 
 <div class="container">
@@ -19,32 +19,46 @@
       <span class="clear" onclick="resetAll()">Clear All</span>
     </div>
 
+    <!-- Mortgage Amount -->
     <label>Mortgage Amount</label>
-    <div class="input-box">
-      <span>£</span>
-      <input id="amount" type="number" placeholder="Enter amount">
+    <div class="field">
+      <div class="input-box" id="amountBox">
+        <span>£</span>
+        <input id="amount" type="number" >
+      </div>
+      <small class="error-text" id="amountError">This field is required</small>
     </div>
 
+    <!-- Term & Rate -->
     <div class="row">
       <div>
         <label>Mortgage Term</label>
-        <div class="input-box">
-<input id="term" type="number" placeholder="Years">          <span>years</span>
+        <div class="field">
+          <div class="input-box" id="termBox">
+            <input id="term" type="number">
+            <span>years</span>
+          </div>
+          <small class="error-text" id="termError">This field is required</small>
         </div>
       </div>
 
       <div>
         <label>Interest Rate</label>
-        <div class="input-box">
-<input id="rate" type="number" placeholder="Rate">          <span>%</span>
+        <div class="field">
+          <div class="input-box" id="rateBox">
+            <input id="rate" type="number" >
+            <span>%</span>
+          </div>
+          <small class="error-text" id="rateError">This field is required</small>
         </div>
       </div>
     </div>
 
+    <!-- Mortgage Type -->
     <label>Mortgage Type</label>
 
-    <div class="type active">
-      <input type="radio" name="type" value="repayment" checked>
+    <div class="type">
+      <input type="radio" name="type" value="repayment">
       <span>Repayment</span>
     </div>
 
@@ -53,33 +67,43 @@
       <span>Interest Only</span>
     </div>
 
- <button class="calculate" onclick="calculate()">
-  🧮 <span id="calcText">Calculate Repayments</span>
-</button>
+    <small class="error-text" id="typeError">This field is required</small>
 
+    <button class="calculate" onclick="calculate()">
+      <img src="icon-calculator.svg" class="calc-icon">
+      <span id="calcText">Calculate Repayments</span>
+    </button>
   </div>
 
   <!-- RIGHT -->
   <div class="right">
-    <h2>Your results</h2>
-    <p class="desc">
-      Your results are shown below based on the information you provided.
-   To adjust the results, edit the form and click "calculate repayments" again.
-    </p>
 
-    <div class="result-box">
-<p id="monthlyLabel">Your monthly repayments</p>
-      <div class="monthly" id="monthly">£0.00</div>
-
-      <hr>
-
-      <p class="total-label">Total you'll repay over the term</p>
-<h3 id="total">£0.00</h3>
+    <div id="emptyState" class="state active">
+      <img src="illustration-empty.svg" class="state-img">
+      <h2>Results shown here</h2>
+      <p class="desc">
+        Complete the form and click "calculate repayments" to see what your monthly repayments would be.
+      </p>
     </div>
+
+    <div id="resultState" class="state">
+      <h2>Your results</h2>
+      <p class="desc">
+        Your results are shown below based on the information you provided.To adjusts the results,edit the form and click "calculate repayments" again.
+      </p>
+
+      <div class="result-box">
+        <p id="monthlyLabel">Your monthly repayments</p>
+        <div class="monthly" id="monthly">£0.00</div>
+        <hr>
+        <p class="total-label">Total you'll repay over the term</p>
+        <h3 id="total">£0.00</h3>
+      </div>
+    </div>
+
   </div>
-
 </div>
-<script src="script.js"></script>
 
+<script src="script.js"></script>
 </body>
 </html>

@@ -4,8 +4,10 @@
   padding: 0;
 }
 
+/* ===== BODY ===== */
 body {
-  font-family: Arial, sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+
   background: #e9f4f8;
   display: flex;
   justify-content: center;
@@ -13,17 +15,18 @@ body {
   min-height: 100vh;
 }
 
+/* ===== CONTAINER ===== */
 .container {
   width: 95%;
   max-width: 1100px;
-  background: #fff;
+  background: #ffffff;
   border-radius: 25px;
   overflow: hidden;
   display: flex;
-  box-shadow: 0 20px 50px rgba(0,0,0,.15);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
 }
 
-/* LEFT */
+/* ===== LEFT PANEL ===== */
 .left {
   flex: 1;
   padding: 40px;
@@ -40,57 +43,79 @@ body {
 }
 
 .clear {
-  color: #6b21a8;
+  color: #706e72;
   text-decoration: underline;
   cursor: pointer;
 }
+.clear:hover{
+  color: #0f2c3f;
+}
 
+/* ===== LABEL ===== */
 label {
   display: block;
   margin: 25px 0 8px;
   color: #475569;
+  font-weight: 500;
 }
 
+/* ===== FIELD WRAPPER ===== */
+.field {
+  margin-bottom: 6px;
+}
+
+/* ===== INPUT BOX ===== */
 .input-box {
   display: flex;
-  border: 1px solid #cfe3ec;
+  align-items: center;
+  border: 2px solid #cfe3ec;
   border-radius: 8px;
   overflow: hidden;
+  background: #ffffff;
+    cursor: pointer;
 }
 
+/* PREFIX / SUFFIX ICON */
 .input-box span {
-  background: #eef6fb;
+  background: #d3e2ea;
   padding: 12px 14px;
   font-weight: bold;
+  white-space: nowrap;
+   color: #6b717b; /* soft grey */
+  font-weight: 700;
 }
 
+/* INPUT */
 .input-box input {
   border: none;
   outline: none;
   padding: 12px;
   width: 100%;
   font-size: 16px;
+    cursor: pointer;
 }
 
+/* ===== ROW ===== */
 .row {
   display: flex;
   gap: 20px;
 }
 
-.row .input-box {
+.row > div {
   flex: 1;
 }
 
-/* Mortgage Type */
+/* ===== MORTGAGE TYPE ===== */
 .type {
-  border: 1px solid #cfe3ec;
+  border: 2px solid #cfe3ec;
   padding: 15px;
-  border-radius: 8px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   gap: 12px;
   margin-top: 12px;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .type.active {
@@ -102,29 +127,41 @@ label {
   width: 18px;
   height: 18px;
 }
-
+.type input[type="radio"] {
+  accent-color:oklch(64.423% 0.10137 105.603);
+}
+/* ===== CALCULATE BUTTON ===== */
 .calculate {
   margin-top: 35px;
-  background: #d4e157;
+  background: hwb(66 5% 18% / 0.968);
   border: none;
   padding: 16px;
-  width: 100%;
+  padding-left: 40px;
+  width: 70%;
   border-radius: 40px;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   gap: 10px;
 }
+.calculate:hover {
+  background-color: #e0ed6b;
+}
 
-/* RIGHT */
+.calc-icon {
+  width: 28px;
+  height: 28px;
+}
+
+/* ===== RIGHT PANEL ===== */
 .right {
   flex: 1;
   background: #0f2c3f;
   padding: 40px;
-  color: white;
+  color: #ffffff;
   border-radius: 0 25px 25px 80px;
 }
 
@@ -136,10 +173,15 @@ label {
 .desc {
   color: #9fb6c3;
   line-height: 1.6;
+    font-size: 16px;
+    width: 100%;
+
 }
 
+
+/* ===== RESULT BOX ===== */
 .result-box {
-  background: rgba(0,0,0,.25);
+  background: rgba(0,0,0,0.25);
   margin-top: 30px;
   padding: 30px;
   border-radius: 10px;
@@ -158,26 +200,143 @@ label {
 
 hr {
   border: none;
-  border-top: 1px solid rgba(255,255,255,.2);
+  border-top: 1px solid rgba(255,255,255,0.2);
   margin: 20px 0;
 }
 
-/* RESPONSIVE */
-@media(max-width:900px){
-  .container {
-    flex-direction: column;
-  }
-  .right {
-    border-radius: 0 0 25px 25px;
-  }
-}
 .total-label {
-  margin-bottom: 10px;   /* space between text and amount */
+  margin-bottom: 10px;
   color: #9fb6c3;
 }
 
-.total-amount {
-  margin-top: 8px;       /* extra breathing room */
-  font-size: 22px;
+/* ===== STATES ===== */
+.state {
+  display: none;
+  height: 100%;
 }
 
+.state.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.state-img {
+  max-width: 250px;
+  margin-bottom: 10px;
+}
+
+/* ===== ERROR STATE ===== */
+.error {
+  color: #dc2626;
+  margin-top: 1px;
+  
+}
+.error-text {
+  display: none;
+  color: #dc2626;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+
+/* Input box error */
+.input-box.error {
+  border: 2px solid #dc2626;
+}
+
+/* Icon error (£, years, %) */
+.input-box.error span {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .right {
+    border-radius: 0 0 0 25px;
+  }
+}
+
+/* Focus state */
+.input-box:focus-within {
+  border-color: #d4e157;
+}
+
+/* Icon yellow on focus */
+.input-box:focus-within span {
+  background: #d4e157;
+  color: #1f3b4d;
+}
+
+.input-box.error {
+  border-color: #dc2626 !important;
+}
+
+.input-box.error span {
+  background: #dc2626 !important;
+  color: #ffffff !important;
+}
+
+
+/* Chrome, Edge, Safari */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+
+/* Text cursor inside inputs */
+.input-box input {
+  cursor: pointer;
+}
+
+/* Pointer cursor for clickable containers */
+.input-box {
+  cursor: pointer;
+}
+
+/* Clear All should show pointer */
+.clear {
+  cursor: pointer;
+}
+.type:hover {
+  border-color: #cce015;
+}
+.input-box:hover {
+  border-color: #717168;
+}
+
+
+@media (max-width: 480px) {
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .clear {
+    font-size: 14px;
+    margin-top: 4px;
+  }
+}
+
+
+  .desc {
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .state-img {
+    max-width: 200px;
+  }
