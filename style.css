@@ -120,7 +120,7 @@ label {
 
 .type.active {
   background: #fff9db;
-  border-color: #d4e157;
+  border-color: #e9f296;
 }
 
 .type input {
@@ -133,7 +133,7 @@ label {
 /* ===== CALCULATE BUTTON ===== */
 .calculate {
   margin-top: 35px;
-  background: hwb(66 5% 18% / 0.968);
+  background: hwb(66 30% 6% / 0.968);
   border: none;
   padding: 16px;
   padding-left: 40px;
@@ -148,7 +148,7 @@ label {
   gap: 10px;
 }
 .calculate:hover {
-  background-color: #e0ed6b;
+  background-color: #ddef35;
 }
 
 .calc-icon {
@@ -270,7 +270,7 @@ hr {
 
 /* Icon yellow on focus */
 .input-box:focus-within span {
-  background: #d4e157;
+  background: #e7f37f;
   color: #1f3b4d;
 }
 
@@ -308,7 +308,7 @@ input[type="number"]::-webkit-outer-spin-button {
   cursor: pointer;
 }
 .type:hover {
-  border-color: #cce015;
+  border-color: #ddee45;
 }
 .input-box:hover {
   border-color: #717168;
