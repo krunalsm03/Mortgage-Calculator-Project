@@ -15,6 +15,50 @@ function formatCurrency(value) {
 }
 
 /* =============================== */
+/* INPUT RESTRICTIONS              */
+/* =============================== */
+const amountInput = document.getElementById("amount");
+const termInput = document.getElementById("term");
+const rateInput = document.getElementById("rate");
+
+/* Block negative, +, -, e */
+function blockInvalidKeys(input) {
+  input.addEventListener("keydown", (e) => {
+    if (["-", "+", "e", "E"].includes(e.key)) {
+      e.preventDefault();
+    }
+  });
+}
+
+/* Mortgage Amount: digits only, max 11 */
+amountInput.addEventListener("input", () => {
+  amountInput.value = amountInput.value.replace(/\D/g, "");
+  if (amountInput.value.length > 11) {
+    amountInput.value = amountInput.value.slice(0, 11);
+  }
+});
+
+/* Mortgage Term: digits only, max 2 */
+termInput.addEventListener("input", () => {
+  termInput.value = termInput.value.replace(/\D/g, "");
+  if (termInput.value.length > 2) {
+    termInput.value = termInput.value.slice(0, 2);
+  }
+});
+
+/* Interest Rate: digits only, max 2 */
+rateInput.addEventListener("input", () => {
+  rateInput.value = rateInput.value.replace(/\D/g, "");
+  if (rateInput.value.length > 2) {
+    rateInput.value = rateInput.value.slice(0, 2);
+  }
+});
+
+blockInvalidKeys(amountInput);
+blockInvalidKeys(termInput);
+blockInvalidKeys(rateInput);
+
+/* =============================== */
 /* Mortgage type selection         */
 /* =============================== */
 cards.forEach(card => {
@@ -36,9 +80,9 @@ cards.forEach(card => {
 /* Calculate Function              */
 /* =============================== */
 function calculate() {
-  const amountVal = Number(document.getElementById("amount").value);
-  const termVal = Number(document.getElementById("term").value);
-  const rateVal = Number(document.getElementById("rate").value);
+  const amountVal = Number(amountInput.value);
+  const termVal = Number(termInput.value);
+  const rateVal = Number(rateInput.value);
   const type = document.querySelector('input[name="type"]:checked');
 
   clearErrors();
@@ -89,6 +133,7 @@ function calculate() {
       monthlyRate *
       Math.pow(1 + monthlyRate, months) /
       (Math.pow(1 + monthlyRate, months) - 1);
+
     label.innerText = "Your monthly repayments";
   } else {
     monthly = amountVal * monthlyRate;
@@ -96,7 +141,7 @@ function calculate() {
   }
 
   /* =============================== */
-  /* OUTPUT WITH COMMAS              */
+  /* OUTPUT                         */
   /* =============================== */
   document.getElementById("monthly").innerText =
     `£${formatCurrency(monthly)}`;
@@ -130,9 +175,9 @@ function clearErrors() {
 /* Reset                           */
 /* =============================== */
 function resetAll() {
-  document.getElementById("amount").value = "";
-  document.getElementById("term").value = "";
-  document.getElementById("rate").value = "";
+  amountInput.value = "";
+  termInput.value = "";
+  rateInput.value = "";
 
   document.querySelectorAll('input[name="type"]').forEach(r => r.checked = false);
   cards.forEach(c => c.classList.remove("active"));
