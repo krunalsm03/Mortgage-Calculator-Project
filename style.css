@@ -128,16 +128,20 @@ label {
   height: 18px;
 }
 .type input[type="radio"] {
-  accent-color:oklch(64.423% 0.10137 105.603);
+  /* accent-color:oklch(64.423% 0.10137 105.603); */
+    width: 18px;
+  height: 18px;
+  accent-color: #d4e157;
 }
+
 /* ===== CALCULATE BUTTON ===== */
 .calculate {
   margin-top: 35px;
   background: hwb(66 30% 6% / 0.968);
   border: none;
-  padding: 16px;
+  padding: 12px;
   padding-left: 40px;
-  width: 70%;
+  width: 65%;
   border-radius: 40px;
   font-size: 16px;
   font-weight: bold;
@@ -145,8 +149,21 @@ label {
   display: flex;
   /* justify-content: center; */
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
+@media (max-width: 600px) {
+  .calculate {
+    width: 100%;
+    justify-content: center;
+    padding-left: 0;
+    gap: 10px;
+  }
+
+  .calculate span {
+    white-space: nowrap;
+  }
+}
+
 .calculate:hover {
   background-color: #ddef35;
 }
@@ -173,10 +190,12 @@ label {
 .desc {
   color: #9fb6c3;
   line-height: 1.6;
-    font-size: 16px;
     width: 100%;
+    font-size: 18px;
+    text-align: center;
 
 }
+
 
 
 /* ===== RESULT BOX ===== */
@@ -330,13 +349,53 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 
-  .desc {
-    width: 100%;
-    font-size: 14px;
-    line-height: 1.6;
-    text-align: center;
-  }
+ 
 
   .state-img {
     max-width: 200px;
   }
+@media (max-width: 600px) {
+  .row {
+    flex-direction: column;
+        gap: 1px;
+        
+
+  }
+}
+/* Hide default radio */
+.type input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+/* Custom radio outer */
+.radio-custom {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #c7f815;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* White inner dot */
+.radio-custom::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: #c7f815;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+/* Show white dot when checked */
+.type input[type="radio"]:checked + .radio-custom::after {
+  opacity: 1;
+}
+
+/* Yellow active box (matches your design) */
+.type:has(input:checked) {
+  background: #f4f9d8;
+  border-color: #cce815;
+}
