@@ -403,3 +403,9 @@ input[type="number"]::-webkit-outer-spin-button {
 .type input[type="radio"]:checked + .radio-custom {
   border-color: #c7f815; /* green */
 }
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 22px;          /* slightly smaller for mobile */
+    white-space: nowrap;     /* force single line */
+  }
+}
