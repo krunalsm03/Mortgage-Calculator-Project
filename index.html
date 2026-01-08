@@ -6,8 +6,8 @@
   <title>Mortgage Calculator</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 </head>
+
 <body>
 
 <div class="container">
@@ -24,7 +24,7 @@
     <div class="field">
       <div class="input-box" id="amountBox">
         <span>£</span>
-        <input id="amount" type="number" >
+        <input id="amount" type="number">
       </div>
       <small class="error-text" id="amountError">This field is required</small>
     </div>
@@ -46,7 +46,7 @@
         <label>Interest Rate</label>
         <div class="field">
           <div class="input-box" id="rateBox">
-            <input id="rate" type="number" >
+            <input id="rate" type="number">
             <span>%</span>
           </div>
           <small class="error-text" id="rateError">This field is required</small>
@@ -57,19 +57,17 @@
     <!-- Mortgage Type -->
     <label>Mortgage Type</label>
 
-   <div class="type">
-  <input type="radio" name="type" value="repayment">
-  <span class="radio-custom"></span>
-  <span>Repayment</span>
-</div>
+    <div class="type">
+      <input type="radio" name="type" value="repayment">
+      <span class="radio-custom"></span>
+      <span>Repayment</span>
+    </div>
 
-
-   <div class="type">
-  <input type="radio" name="type" value="interest">
-  <span class="radio-custom"></span>
-  <span>Interest Only</span>
-</div>
-
+    <div class="type">
+      <input type="radio" name="type" value="interest">
+      <span class="radio-custom"></span>
+      <span>Interest Only</span>
+    </div>
 
     <small class="error-text" id="typeError">This field is required</small>
 
@@ -93,7 +91,7 @@
     <div id="resultState" class="state">
       <h2>Your results</h2>
       <p class="desc">
-        Your results are shown below based on the information you provided.To adjusts the results,edit the form and click "calculate repayments" again.
+        Your results are shown below based on the information you provided.
       </p>
 
       <div class="result-box">
