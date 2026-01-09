@@ -4,11 +4,8 @@
   padding: 0;
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
-
 /* ===== BODY ===== */
 body {
-    
-
   background: #e9f4f8;
   display: flex;
   justify-content: center;
@@ -76,13 +73,12 @@ label {
     cursor: pointer;
 }
 
-/* PREFIX / SUFFIX ICON */
 .input-box span {
   background: #d3e2ea;
   padding: 12px 14px;
   font-weight: bold;
   white-space: nowrap;
-   color: #6b717b; /* soft grey */
+   color: #6b717b; 
   font-weight: 700;
 }
 
@@ -96,7 +92,6 @@ label {
     cursor: pointer;
 }
 
-/* ===== ROW ===== */
 .row {
   display: flex;
   gap: 20px;
@@ -129,7 +124,6 @@ label {
   height: 18px;
 }
 .type input[type="radio"] {
-  /* accent-color:oklch(64.423% 0.10137 105.603); */
     width: 18px;
   height: 18px;
   accent-color: #d4e157;
@@ -148,7 +142,6 @@ label {
   font-weight: bold;
   cursor: pointer;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   gap: 8px;
 }
@@ -196,8 +189,6 @@ label {
     text-align: center;
 
 }
-
-
 
 /* ===== RESULT BOX ===== */
 .result-box {
@@ -303,15 +294,12 @@ hr {
   color: #ffffff !important;
 }
 
-
 /* Chrome, Edge, Safari */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
-
 
 /* Text cursor inside inputs */
 .input-box input {
@@ -349,7 +337,6 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 }
  
-
   .state-img {
     max-width: 200px;
   }
@@ -358,7 +345,6 @@ input[type="number"]::-webkit-outer-spin-button {
     flex-direction: column;
         gap: 1px;
         
-
   }
 }
 /* Hide default radio */
