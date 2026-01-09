@@ -189,6 +189,14 @@ label {
     text-align: center;
 
 }
+.desc1 {
+  color: #9fb6c3;
+  line-height: 1.6;
+    width: 100%;
+    font-size: 18px;
+    /* text-align: center; */
+
+}
 
 /* ===== RESULT BOX ===== */
 .result-box {
@@ -225,12 +233,20 @@ hr {
   display: none;
   height: 100%;
 }
+.state1 {
+  display: none;
+  height: 100%;
+}
 
 .state.active {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.state1.active {
+  display: flex;
+  flex-direction: column;
 }
 
 .state-img {
